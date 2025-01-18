@@ -1,0 +1,93 @@
+ScreenManager:
+    MainScreen:
+    SecondScreen:
+    ThirdScreen:
+    FourthScreen:
+    FifthScreen:
+    SixthScreen:
+    SeventhScreen:
+    EighthScreen:
+    NinthScreen:
+    TenthScreen:
+    EleventhScreen:
+    TwelfthScreen:
+    ThirteenthScreen:
+    FourteenthScreen:
+
+<MainScreen>:
+    name: "main"
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_light
+        padding: "16dp"
+        spacing: "16dp"
+
+        MDLabel:
+            text: "HighMetric"
+            halign: "center"
+            font_style: "H4"
+            size_hint_y: None
+            height: self.texture_size[1] + dp(10)
+
+        GridLayout:
+            cols: 3
+            spacing: "16dp"
+            size_hint_y: None
+            height: self.minimum_height
+
+            # Gerando 14 botões
+            MDRaisedButton:
+                size_hint: None, None
+                size: dp(80), dp(80)
+                md_bg_color: app.theme_cls.primary_color
+                radius: [15, 15, 15, 15]
+                on_release: app.root.current = "second"
+                MDFloatLayout:
+                    MDIcon:
+                        icon: "thermometer"
+                        halign: "center"
+                        valign: "center"
+                        size_hint: None, None
+                        size: dp(48), dp(48)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            # Repita para os 13 botões adicionais, mudando "icon" e "on_release"
+            MDRaisedButton:
+                size_hint: None, None
+                size: dp(80), dp(80)
+                md_bg_color: app.theme_cls.primary_color
+                radius: [15, 15, 15, 15]
+                on_release: app.root.current = "third"
+                MDFloatLayout:
+                    MDIcon:
+                        icon: "ruler"
+                        halign: "center"
+                        valign: "center"
+                        size_hint: None, None
+                        size: dp(48), dp(48)
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            # Continue com os botões até o 14º
+
+<SecondScreen>:
+    name: "second"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDLabel:
+            text: "Second Screen"
+            halign: "center"
+        MDFlatButton:
+            text: "Voltar"
+            on_release: app.root.current = "main"
+
+# Adicione as demais telas seguindo o mesmo padrão
+<ThirdScreen>:
+    name: "third"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDLabel:
+            text: "Third Screen"
+            halign: "center"
+        MDFlatButton:
+            text: "Voltar"
+            on_release: app.root.current = "main"
