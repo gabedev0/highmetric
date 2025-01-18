@@ -1,5 +1,7 @@
 menu = """
 ScreenManager:
+    id: screen_manager
+    
     MenuScreen:
     AnguloScreen:
     AreaScreen:
@@ -25,7 +27,7 @@ ScreenManager:
         title: "HighMetric"
         center_title: True
         left_action_items: [["information-outline", lambda x: print("Informações clicadas")]]
-        right_action_items: [["lightbulb", lambda x: app.toggle_theme()]]
+        right_action_items: [["lightbulb", lambda x: app.trocar_tema()]]
 
 
     MDBoxLayout:
@@ -436,6 +438,7 @@ ScreenManager:
             text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
+            
 
 <AreaScreen>:
     name: 'area'

@@ -1,6 +1,6 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.core.window import Window
 from tela import *
 from kivymd.uix.label import MDLabel
@@ -10,63 +10,78 @@ Window.size = (360, 640)
 
 
 class MenuScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='left')
 
 
 class AnguloScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class AreaScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class ComprimentoScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class DensidadeScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class DigitalScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class EnergiaScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class ForcaScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class MoedaScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class PesoScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class PressaoScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class TemperaturaScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class TempoScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class VelocidadeScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 class VolumeScreen(Screen):
-    pass
+    def on_pre_enter(self):
+        self.manager.transition = SlideTransition(direction='right')
 
 
 sm = ScreenManager()
@@ -92,14 +107,19 @@ class HighMetric(MDApp):
         screen = Builder.load_string(menu)
         return screen
 
-    def toggle_theme(self):
-        """Alterna entre o tema claro e escuro."""
+    def trocar_tema(self):
         if self.theme_cls.theme_style == "Light":
             self.theme_cls.primary_palette = "Orange"
             self.theme_cls.theme_style = "Dark"
         else:
             self.theme_cls.primary_palette = "Blue"
             self.theme_cls.theme_style = "Light"
+
+    def atualizar_barras_de_cor(self):
+        if self.theme_cls.theme_style == "Light":
+            self.set_bars_colors(status_bar=(1, 1, 1, 1), navigation_bar=(0, 0, 0, 1))  # Branco e preto
+        else:
+            self.set_bars_colors(status_bar=(0, 0, 0, 1), navigation_bar=(1, 1, 1, 1))  # Preto e branco
 
 
 if __name__ == "__main__":
