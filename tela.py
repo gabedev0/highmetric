@@ -28,202 +28,400 @@ ScreenManager:
         right_action_items: [["lightbulb", lambda x: app.toggle_theme()]]
 
 
-    MDIconButton:
-        icon: 'imgs/angulo_icon.png'
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "160dp", "160dp"
-        pos_hint: {'center_x':0.2,'center_y':0.9}
-        on_press: root.manager.current = 'angulo'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
+        size: self.minimum_size
+        pos_hint: {'center_x': 0.2, 'center_y': 0.9}
 
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
+        MDIconButton:
+            icon: 'imgs/angulo_icon.png'
+            size_hint: None, None
+            size: "160dp", "160dp"
+            on_press: root.manager.current = 'angulo'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/area_icon.png'
-        size_hint: None, None
-        size: "128dp", "128dp"
-        pos_hint: {'center_x':0.5,'center_y':0.9}
-        on_press: root.manager.current = 'comprimento'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
+        MDLabel:
+            text: 'Ângulo'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
 
-    MDIconButton:
-        icon: 'imgs/comprimento_icon.png'
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
-        pos_hint: {'center_x':0.8,'center_y':0.9}
-        on_press: root.manager.current = 'area'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
-                
-    MDIconButton:
-        icon: 'imgs/densidade_icon.png'
+        size: self.minimum_size
+        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+        MDIconButton:
+            icon: 'imgs/area_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'area'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Área'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
+        pos_hint: {'center_x': 0.8, 'center_y': 0.9}
+
+        MDIconButton:
+            icon: 'imgs/comprimento_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'comprimento'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Tamanho'
+            text_size: self.size
+            width: self.texture_size[0]
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        size: self.minimum_size
         pos_hint: {'center_x': 0.2, 'center_y': 0.8}
-        on_press: root.manager.current = 'densidade'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/digital_icon.png'
+        MDIconButton:
+            icon: 'imgs/densidade_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'densidade'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Densidade'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.5, 'center_y': 0.8}
-        on_press: root.manager.current = 'digital'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/energia_icon.png'
+        MDIconButton:
+            icon: 'imgs/digital_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'digital'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Digital'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.8, 'center_y': 0.8}
-        on_press: root.manager.current = 'energia'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/forca_icon.png'
+        MDIconButton:
+            icon: 'imgs/energia_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'energia'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Energia'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.2, 'center_y': 0.7}
-        on_press: root.manager.current = 'forca'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/moeda_icon.png'
+        MDIconButton:
+            icon: 'imgs/forca_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'forca'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Força'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.5, 'center_y': 0.7}
-        on_press: root.manager.current = 'moeda'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/peso_icon.png'
+        MDIconButton:
+            icon: 'imgs/moeda_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'moeda'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Moeda'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.8, 'center_y': 0.7}
-        on_press: root.manager.current = 'peso'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/pressao_icon.png'
+        MDIconButton:
+            icon: 'imgs/peso_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'peso'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Peso'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.2, 'center_y': 0.6}
-        on_press: root.manager.current = 'pressao'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/temperatura_icon.png'
+        MDIconButton:
+            icon: 'imgs/pressao_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'pressao'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Pressão'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-        on_press: root.manager.current = 'temperatura'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/tempo_icon.png'
+        MDIconButton:
+            icon: 'imgs/temperatura_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'temperatura'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Tempérie'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.8, 'center_y': 0.6}
-        on_press: root.manager.current = 'tempo'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/velocidade_icon.png'
+        MDIconButton:
+            icon: 'imgs/tempo_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'tempo'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Tempo'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.2, 'center_y': 0.5}
-        on_press: root.manager.current = 'velocidade'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
 
-    MDIconButton:
-        icon: 'imgs/volume_icon.png'
+        MDIconButton:
+            icon: 'imgs/velocidade_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'velocidade'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Velocidade'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
+
+    MDBoxLayout:
+        orientation: 'vertical'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: self.minimum_size
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-        on_press: root.manager.current = 'volume'
-        canvas.before:
-            Color:
-                rgba: 0.66, 0.66, 0.66, 1
-            RoundedRectangle:
-                pos: self.pos
-                size: self.size
-                radius: [12]
+
+        MDIconButton:
+            icon: 'imgs/volume_icon.png'
+            size_hint: None, None
+            size: "128dp", "128dp"
+            on_press: root.manager.current = 'volume'
+            canvas.before:
+                Color:
+                    rgba: 0.66, 0.66, 0.66, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [12]
+
+        MDLabel:
+            text: 'Volume'
+            halign: 'center'
+            font_size: '10dp'
+            size_hint_y: None
+            height: self.texture_size[1]
+            max_lines: 1
+            bold: True
 
 
 
@@ -235,7 +433,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -247,7 +445,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -260,7 +458,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -272,7 +470,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -284,7 +482,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -296,7 +494,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -308,7 +506,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -320,7 +518,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -332,7 +530,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -344,7 +542,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -356,7 +554,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -368,7 +566,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -380,7 +578,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 
@@ -392,7 +590,7 @@ ScreenManager:
             halign: 'center'
 
         MDRectangleFlatButton:
-            text: 'Back'
+            text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
 """

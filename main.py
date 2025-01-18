@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from tela import *
+from kivymd.uix.label import MDLabel
 from kivymd.utils.set_bars_colors import set_bars_colors
 
 Window.size = (360, 640)
