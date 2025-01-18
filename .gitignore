@@ -7,9 +7,9 @@ logs/
 .idea
 .vscode/
 .idea/
+.gitignore
 *.env
 config.json
-.vscode/
 *.sublime-project
 *.tmp
 *.pyc
