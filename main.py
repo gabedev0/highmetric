@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from tela import *
+from kivymd.utils.set_bars_colors import set_bars_colors
 
 Window.size = (360, 640)
 
@@ -21,6 +22,7 @@ class AreaScreen(Screen):
 
 class ComprimentoScreen(Screen):
     pass
+
 
 class DensidadeScreen(Screen):
     pass
@@ -83,8 +85,8 @@ sm.add_widget(TempoScreen(name='tempo'))
 sm.add_widget(VelocidadeScreen(name='velocidade'))
 sm.add_widget(VolumeScreen(name='volume'))
 
-class HighMetric(MDApp):
 
+class HighMetric(MDApp):
     def build(self):
         screen = Builder.load_string(menu)
         return screen

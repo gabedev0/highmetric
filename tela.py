@@ -27,10 +27,11 @@ ScreenManager:
         left_action_items: [["information-outline", lambda x: print("Informações clicadas")]]
         right_action_items: [["lightbulb", lambda x: app.toggle_theme()]]
 
+
     MDIconButton:
         icon: 'imgs/angulo_icon.png'
         size_hint: None, None
-        size: "128dp", "128dp"
+        size: "160dp", "160dp"
         pos_hint: {'center_x':0.2,'center_y':0.9}
         on_press: root.manager.current = 'angulo'
         canvas.before:
