@@ -452,6 +452,12 @@ ScreenManager:
                 input_filter: 'float'
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
+                
+            MDLabel:
+                id: resultado
+                text: "Resultado:"
+                halign: 'center'
+                font_style: 'H6'
 
             MDRectangleFlatButton:
                 text: "Graus para Radianos"
@@ -465,11 +471,9 @@ ScreenManager:
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("radianos_para_graus")
 
-            MDLabel:
-                id: resultado
-                text: "Resultado:"
-                halign: 'center'
-                font_style: 'H6'
+            Widget:
+                size_hint_y: None
+                height: "20dp"
 
             VoltarMenu:
             
@@ -494,6 +498,13 @@ ScreenManager:
                 input_filter: 'float'
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
+                
+            MDLabel:
+                id: resultado
+                text: "Resultado:"
+                halign: 'center'
+                font_style: 'H6'
+                height: self.texture_size[1]
 
             MDRectangleFlatButton:
                 text: "Metros² para Hectares"
@@ -530,13 +541,11 @@ ScreenManager:
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("m2_para_pes2")
-
-            MDLabel:
-                id: resultado
-                text: ""
-                halign: 'center'
-                font_style: 'H6'
-
+            
+            Widget:
+                size_hint_y: None
+                height: "20dp"
+                
             VoltarMenu:
 
 <ComprimentoScreen>:
@@ -552,6 +561,7 @@ ScreenManager:
                 spacing: "20dp"
                 size_hint_y: None
                 height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5} 
 
                 MDLabel:
                     text: "Conversor de Comprimento"
@@ -568,6 +578,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Metros para Quilômetros"
@@ -649,13 +667,9 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "20dp"
 
                 VoltarMenu:
 
@@ -671,7 +685,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height
+                height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
                 MDLabel:
                     text: "Conversor de Densidade"
@@ -688,6 +703,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "kg/m³ para g/cm³"
@@ -704,14 +727,10 @@ ScreenManager:
                     on_release: root.converter("g_cm3_para_kg_m3")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "255dp"
 
                 VoltarMenu:
 
@@ -728,6 +747,7 @@ ScreenManager:
                 spacing: "20dp"
                 size_hint_y: None
                 height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
                 MDLabel:
                     text: "Conversor de Unidades Digitais"
@@ -744,6 +764,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Bytes para Kilobytes"
@@ -792,14 +820,10 @@ ScreenManager:
                     on_release: root.converter("pb_para_tb")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "20dp"
 
                 VoltarMenu:
 
@@ -815,7 +839,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height  
+                height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 
                 MDLabel:
                     text: "Conversor de Energia"
@@ -832,6 +857,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Joules para Quilocalorias"
@@ -864,14 +897,10 @@ ScreenManager:
                     on_release: root.converter("kwh_para_joules")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "150dp"
 
                 VoltarMenu:
 
@@ -887,7 +916,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height  
+                height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
                 MDLabel:
                     text: "Conversor de Força"
@@ -904,6 +934,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Newtons para kgf"
@@ -936,14 +974,10 @@ ScreenManager:
                     on_release: root.converter("lbf_para_newtons")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "165dp"
 
                 VoltarMenu:
 
@@ -954,12 +988,22 @@ ScreenManager:
             orientation: 'vertical'
             padding: "20dp"
             spacing: "20dp"
+            size_hint_y: None
+            height: self.minimum_height 
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            
+            Widget:
+                size_hint_y: None
+                height: "10dp"
 
             MDLabel:
                 text: "Conversor de Moedas"
                 halign: 'center'
                 font_style: 'H5'
+                
+            Widget:
+                size_hint_y: None
+                height: "10dp"
 
             MDTextField:
                 id: valor_input
@@ -967,6 +1011,18 @@ ScreenManager:
                 input_filter: 'float'
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
+                
+            MDLabel:
+                id: resultado
+                text: ""
+                halign: 'center'
+                font_style: 'H6'
+                size_hint_y: None
+                height: self.texture_size[1]
+                
+            Widget:
+                size_hint_y: None
+                height: "20dp"
 
             MDRectangleFlatButton:
                 id: moeda_origem
@@ -987,12 +1043,10 @@ ScreenManager:
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter()
-
-            MDLabel:
-                id: resultado
-                text: ""
-                halign: 'center'
-                font_style: 'H6'
+                
+            Widget:
+                size_hint_y: None
+                height: "160dp"
 
             VoltarMenu:
 
@@ -1009,7 +1063,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height  
+                height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5} 
 
                 MDLabel:
                     text: "Conversor de Peso"
@@ -1026,6 +1081,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Quilogramas para Gramas"
@@ -1090,14 +1153,10 @@ ScreenManager:
                     on_release: root.converter("g_para_oz")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "20dp"
 
                 VoltarMenu:
 
@@ -1113,7 +1172,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height  
+                height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}  
 
                 MDLabel:
                     text: "Conversor de Pressão"
@@ -1130,6 +1190,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Pascal para Bar"
@@ -1162,14 +1230,10 @@ ScreenManager:
                     on_release: root.converter("psi_para_pascal")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "150dp"
 
                 VoltarMenu:
 
@@ -1185,7 +1249,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height  
+                height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}  
 
                 MDLabel:
                     text: "Conversor de Temperatura"
@@ -1202,6 +1267,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Celsius para Fahrenheit"
@@ -1251,13 +1324,11 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+               
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "20dp"
 
                 VoltarMenu:
 
@@ -1273,7 +1344,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height  
+                height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}  
 
                 MDLabel:
                     text: "Conversor de Tempo"
@@ -1290,6 +1362,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Segundos para Minutos"
@@ -1338,14 +1418,10 @@ ScreenManager:
                     on_release: root.converter("dias_para_horas")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "20dp"
 
                 VoltarMenu:
 
@@ -1362,6 +1438,7 @@ ScreenManager:
                 spacing: "20dp"
                 size_hint_y: None
                 height: self.minimum_height 
+                pos_hint: {"center_x": 0.5, "center_y": 0.5} 
 
                 MDLabel:
                     text: "Conversor de Velocidade"
@@ -1378,6 +1455,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "km/h para mph"
@@ -1426,14 +1511,10 @@ ScreenManager:
                     on_release: root.converter("kmh_para_nos")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "30dp"
 
                 VoltarMenu:
 
@@ -1449,7 +1530,8 @@ ScreenManager:
                 padding: "20dp"
                 spacing: "20dp"
                 size_hint_y: None
-                height: self.minimum_height 
+                height: self.minimum_height
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
                 MDLabel:
                     text: "Conversor de Volume"
@@ -1466,6 +1548,14 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDLabel:
+                    id: resultado
+                    text: "Resultado:"
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
 
                 MDRectangleFlatButton:
                     text: "Litros para Mililitros"
@@ -1530,14 +1620,10 @@ ScreenManager:
                     on_release: root.converter("litros_para_oncas")
                     size_hint_y: None
                     height: "48dp"
-
-                MDLabel:
-                    id: resultado
-                    text: ""
-                    halign: 'center'
-                    font_style: 'H6'
+                    
+                Widget:
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: "20dp"
 
                 VoltarMenu:
 """

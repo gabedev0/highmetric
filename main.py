@@ -486,13 +486,17 @@ class VolumeScreen(Screen):
                     resultado = litros_para_oncas_liquidas(valor)
                     self.ids.resultado.text = f"Resultado: {resultado:.2f} onças"
             except ValueError:
-                self.ids.resultado.text = "Erro: Valor inválido."
+                self.ids.resultado.text = "Erro: Valor inválido"
         else:
-            self.ids.resultado.text = "Digite um valor."
+            self.ids.resultado.text = "Digite um valor"
 
 
 class HighMetric(MDApp):
     def build(self):
+
+        self.theme_cls.theme_style_switch_animation = True
+        self.theme_cls.theme_style_switch_animation_duration = 1
+
         screen = Builder.load_string(tela)
         return screen
 
@@ -500,9 +504,11 @@ class HighMetric(MDApp):
         if self.theme_cls.theme_style == "Light":
             self.theme_cls.primary_palette = "Orange"
             self.theme_cls.theme_style = "Dark"
+            self.theme_cls.theme_style_switch_animation_duration = 1
         else:
             self.theme_cls.primary_palette = "Blue"
             self.theme_cls.theme_style = "Light"
+            self.theme_cls.theme_style_switch_animation_duration = 1
 
     def barras_de_cor(self):
         if self.theme_cls.theme_style == "Light":
