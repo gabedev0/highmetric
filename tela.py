@@ -1,3 +1,4 @@
+tela = """
 ScreenManager:
     id: screen_manager
     
@@ -25,7 +26,7 @@ ScreenManager:
     MDTopAppBar:
         title: "HighMetric"
         center_title: True
-        left_action_items: [["information-outline", lambda x: print("Informações clicadas")]]
+        left_action_items: [["information-outline", lambda x: print("Apertado")]]
         right_action_items: [["lightbulb", lambda x: app.trocar_tema()]]
 
 
@@ -425,173 +426,1118 @@ ScreenManager:
             bold: True
 
 
+<VoltarMenu@MDRectangleFlatButton>:
+    text: "Voltar"
+    size_hint_x: 0.8
+    pos_hint: {"center_x": 0.5, "center_y": 0.1}
+    on_release: app.root.current = 'menu'
 
 <AnguloScreen>:
     name: 'angulo'
     MDScreen:
-        MDLabel:
-            text: 'ANGULO'
-            halign: 'center'
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: "20dp"
+            spacing: "20dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDLabel:
+                text: "Conversor de Ângulos"
+                halign: 'center'
+                font_style: 'H5'
+
+            MDTextField:
+                id: valor_input
+                hint_text: "Digite o valor"
+                input_filter: 'float'
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+
+            MDRectangleFlatButton:
+                text: "Graus para Radianos"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("graus_para_radianos")
+
+            MDRectangleFlatButton:
+                text: "Radianos para Graus"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("radianos_para_graus")
+
+            MDLabel:
+                id: resultado
+                text: "Resultado:"
+                halign: 'center'
+                font_style: 'H6'
+
+            VoltarMenu:
             
 
 <AreaScreen>:
     name: 'area'
     MDScreen:
-        MDLabel:
-            text: 'AREA'
-            halign: 'center'
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: "20dp"
+            spacing: "20dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDLabel:
+                text: "Conversor de Área"
+                halign: 'center'
+                font_style: 'H5'
 
+            MDTextField:
+                id: valor_input
+                hint_text: "Digite o valor"
+                input_filter: 'float'
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+
+            MDRectangleFlatButton:
+                text: "Metros² para Hectares"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("m2_para_ha")
+
+            MDRectangleFlatButton:
+                text: "Hectares para Metros²"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("ha_para_m2")
+
+            MDRectangleFlatButton:
+                text: "Metros² para Acres"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("m2_para_acres")
+
+            MDRectangleFlatButton:
+                text: "Acres para Metros²"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("acres_para_m2")
+
+            MDRectangleFlatButton:
+                text: "Pés² para Metros²"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("pes2_para_m2")
+
+            MDRectangleFlatButton:
+                text: "Metros² para Pés²"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter("m2_para_pes2")
+
+            MDLabel:
+                id: resultado
+                text: ""
+                halign: 'center'
+                font_style: 'H6'
+
+            VoltarMenu:
 
 <ComprimentoScreen>:
     name: 'comprimento'
     MDScreen:
-        MDLabel:
-            text: 'COMPRIMENTO'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height 
+
+                MDLabel:
+                    text: "Conversor de Comprimento"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Metros para Quilômetros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("m_para_km")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Quilômetros para Metros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("km_para_m")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Metros para Milhas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("m_para_milhas")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Milhas para Metros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("milhas_para_m")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Polegadas para Centímetros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("pol_para_cm")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Centímetros para Polegadas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("cm_para_pol")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Pés para Metros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("pes_para_m")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Metros para Pés"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("m_para_pes")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Jardas para Metros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("jardas_para_m")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Metros para Jardas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("m_para_jardas")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <DensidadeScreen>:
     name: 'densidade'
     MDScreen:
-        MDLabel:
-            text: 'DENSIDADE'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDLabel:
+                    text: "Conversor de Densidade"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "kg/m³ para g/cm³"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kg_m3_para_g_cm3")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "g/cm³ para kg/m³"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("g_cm3_para_kg_m3")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <DigitalScreen>:
     name: 'digital'
     MDScreen:
-        MDLabel:
-            text: 'DIGITAL'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height 
+
+                MDLabel:
+                    text: "Conversor de Unidades Digitais"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Bytes para Kilobytes"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("bytes_para_kb")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Kilobytes para Bytes"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kb_para_bytes")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Megabytes para Gigabytes"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("mb_para_gb")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Gigabytes para Megabytes"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("gb_para_mb")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Terabytes para Petabytes"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("tb_para_pb")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Petabytes para Terabytes"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("pb_para_tb")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <EnergiaScreen>:
     name: 'energia'
     MDScreen:
-        MDLabel:
-            text: 'ENERGIA'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height  
+                
+                MDLabel:
+                    text: "Conversor de Energia"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Joules para Quilocalorias"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("joules_para_kcal")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Quilocalorias para Joules"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kcal_para_joules")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Joules para Quilowatt-horas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("joules_para_kwh")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Quilowatt-horas para Joules"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kwh_para_joules")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <ForcaScreen>:
     name: 'forca'
     MDScreen:
-        MDLabel:
-            text: 'FORÇA'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height  
+
+                MDLabel:
+                    text: "Conversor de Força"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Newtons para kgf"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("newtons_para_kgf")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "kgf para Newtons"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kgf_para_newtons")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Newtons para lbf"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("newtons_para_lbf")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "lbf para Newtons"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("lbf_para_newtons")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <MoedaScreen>:
     name: 'moeda'
     MDScreen:
-        MDLabel:
-            text: 'MOEDA'
-            halign: 'center'
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: "20dp"
+            spacing: "20dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDLabel:
+                text: "Conversor de Moedas"
+                halign: 'center'
+                font_style: 'H5'
+
+            MDTextField:
+                id: valor_input
+                hint_text: "Digite o valor"
+                input_filter: 'float'
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+
+            MDRectangleFlatButton:
+                id: moeda_origem
+                text: "Selecione a moeda de origem"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.abrir_menu_moedas(self, "origem")
+
+            MDRectangleFlatButton:
+                id: moeda_destino
+                text: "Selecione a moeda de destino"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.abrir_menu_moedas(self, "destino")
+
+            MDRectangleFlatButton:
+                text: "Converter"
+                size_hint_x: 0.8
+                pos_hint: {"center_x": 0.5}
+                on_release: root.converter()
+
+            MDLabel:
+                id: resultado
+                text: ""
+                halign: 'center'
+                font_style: 'H6'
+
+            VoltarMenu:
+
 
 <PesoScreen>:
     name: 'peso'
     MDScreen:
-        MDLabel:
-            text: 'PESO'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height  
+
+                MDLabel:
+                    text: "Conversor de Peso"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Quilogramas para Gramas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kg_para_g")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Gramas para Quilogramas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("g_para_kg")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Quilogramas para Libras"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kg_para_lb")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Libras para Quilogramas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("lb_para_kg")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Toneladas para Quilogramas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("t_para_kg")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Quilogramas para Toneladas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kg_para_t")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Onças para Gramas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("oz_para_g")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Gramas para Onças"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("g_para_oz")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <PressaoScreen>:
     name: 'pressao'
     MDScreen:
-        MDLabel:
-            text: 'PRESSÃO'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height  
+
+                MDLabel:
+                    text: "Conversor de Pressão"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Pascal para Bar"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("pascal_para_bar")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Bar para Pascal"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("bar_para_pascal")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Pascal para PSI"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("pascal_para_psi")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "PSI para Pascal"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("psi_para_pascal")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <TemperaturaScreen>:
     name: 'temperatura'
     MDScreen:
-        MDLabel:
-            text: 'TEMPERATURA'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height  
+
+                MDLabel:
+                    text: "Conversor de Temperatura"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Celsius para Fahrenheit"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("celsius_para_fahrenheit")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Fahrenheit para Celsius"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("fahrenheit_para_celsius")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Celsius para Kelvin"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("celsius_para_kelvin")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Kelvin para Celsius"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kelvin_para_celsius")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Fahrenheit para Kelvin"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("fahrenheit_para_kelvin")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Kelvin para Fahrenheit"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kelvin_para_fahrenheit")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <TempoScreen>:
     name: 'tempo'
     MDScreen:
-        MDLabel:
-            text: 'TEMPO'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height  
+
+                MDLabel:
+                    text: "Conversor de Tempo"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Segundos para Minutos"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("segundos_para_minutos")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Minutos para Segundos"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("minutos_para_segundos")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Minutos para Horas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("minutos_para_horas")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Horas para Minutos"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("horas_para_minutos")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Horas para Dias"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("horas_para_dias")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Dias para Horas"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("dias_para_horas")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <VelocidadeScreen>:
     name: 'velocidade'
     MDScreen:
-        MDLabel:
-            text: 'VELOCIDADE'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height 
+
+                MDLabel:
+                    text: "Conversor de Velocidade"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "km/h para mph"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kmh_para_mph")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "mph para km/h"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("mph_para_kmh")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "m/s para km/h"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("mps_para_kmh")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "km/h para m/s"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kmh_para_mps")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "nós para km/h"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("nos_para_kmh")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "km/h para nós"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("kmh_para_nos")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
 
 <VolumeScreen>:
     name: 'volume'
     MDScreen:
-        MDLabel:
-            text: 'VOLUME'
-            halign: 'center'
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
 
-        MDRectangleFlatButton:
-            text: 'Voltar'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
-            on_press: root.manager.current = 'menu'
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height 
+
+                MDLabel:
+                    text: "Conversor de Volume"
+                    halign: 'center'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id: valor_input
+                    hint_text: "Digite o valor"
+                    input_filter: 'float'
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Litros para Mililitros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("litros_para_ml")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Mililitros para Litros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("ml_para_litros")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Litros para Galões"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("litros_para_galoes")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Galões para Litros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("galoes_para_litros")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Xícaras para Mililitros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("xicaras_para_ml")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Mililitros para Xícaras"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("ml_para_xicaras")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Onças para Litros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("oncas_para_litros")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDRectangleFlatButton:
+                    text: "Litros para Onças"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("litros_para_oncas")
+                    size_hint_y: None
+                    height: "48dp"
+
+                MDLabel:
+                    id: resultado
+                    text: ""
+                    halign: 'center'
+                    font_style: 'H6'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                VoltarMenu:
+"""
