@@ -1,4 +1,3 @@
-menu = """
 ScreenManager:
     id: screen_manager
     
@@ -596,4 +595,3 @@ ScreenManager:
             text: 'Voltar'
             pos_hint: {'center_x': 0.5, 'center_y': 0.1}
             on_press: root.manager.current = 'menu'
-"""
