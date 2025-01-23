@@ -9,10 +9,9 @@ def converter_moeda(valor, moeda_origem, moeda_destino):
     dados = response.json()
     if dados["result"] == "success":
         taxa_conversao = dados["conversion_rates"].get(moeda_destino)
-        if taxa_conversao:
-            return valor * taxa_conversao
+        return valor * taxa_conversao
     else:
-        return "Erro: Falha ao acessar a API"
+        return "Erro"
 
 
 def listar_moedas():
@@ -22,4 +21,4 @@ def listar_moedas():
     if dados["result"] == "success":
         return list(dados["conversion_rates"].keys())
     else:
-        return "Erro: Falha ao acessar a API"
+        return "Erro"

@@ -1,5 +1,5 @@
-def bytes_para_kilobytes(bytes_):
-    return bytes_ / 1024
+def bytes_para_kilobytes(bytes):
+    return bytes / 1024
 
 
 def kilobytes_para_bytes(kilobytes):

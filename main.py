@@ -1,7 +1,6 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
-from kivymd.uix.dialog import MDDialog
+from kivy.uix.screenmanager import Screen, SlideTransition
 from kivymd.uix.menu import MDDropdownMenu
 from tela import *
 from tipos.moeda import *
@@ -121,6 +120,24 @@ class ComprimentoScreen(Screen):
                     self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
                 elif tipo == "m_para_jardas":
                     resultado = metros_para_jardas(valor)
+                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                elif tipo == "cicero_para_milimetros":
+                    resultado = cicero_para_milimetros(valor)
+                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                elif tipo == "milimetros_para_cicero":
+                    resultado = milimetros_para_cicero(valor)
+                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                elif tipo == "cicero_para_pontos":
+                    resultado = cicero_para_pontos(valor)
+                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                elif tipo == "pontos_para_cicero":
+                    resultado = pontos_para_cicero(valor)
+                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                elif tipo == "pontos_para_milimetros":
+                    resultado = pontos_para_milimetros(valor)
+                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                elif tipo == "milimetros_para_pontos":
+                    resultado = milimetros_para_pontos(valor)
                     self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
@@ -495,7 +512,7 @@ class HighMetric(MDApp):
     def build(self):
 
         self.theme_cls.theme_style_switch_animation = True
-        self.theme_cls.theme_style_switch_animation_duration = 1
+        self.theme_cls.theme_style_switch_animation_duration = 0.5
 
         screen = Builder.load_string(tela)
         return screen
@@ -504,17 +521,11 @@ class HighMetric(MDApp):
         if self.theme_cls.theme_style == "Light":
             self.theme_cls.primary_palette = "Orange"
             self.theme_cls.theme_style = "Dark"
-            self.theme_cls.theme_style_switch_animation_duration = 1
+            self.theme_cls.theme_style_switch_animation_duration = 0.5
         else:
             self.theme_cls.primary_palette = "Blue"
             self.theme_cls.theme_style = "Light"
-            self.theme_cls.theme_style_switch_animation_duration = 1
-
-    def barras_de_cor(self):
-        if self.theme_cls.theme_style == "Light":
-            self.set_bars_colors(status_bar=(1, 1, 1, 1), navigation_bar=(0, 0, 0, 1))
-        else:
-            self.set_bars_colors(status_bar=(0, 0, 0, 1), navigation_bar=(1, 1, 1, 1))
+            self.theme_cls.theme_style_switch_animation_duration = 0.5
 
 
 if __name__ == "__main__":

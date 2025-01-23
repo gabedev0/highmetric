@@ -666,6 +666,54 @@ ScreenManager:
                     on_release: root.converter("m_para_jardas")
                     size_hint_y: None
                     height: "48dp"
+                    
+                MDRectangleFlatButton:
+                    text: "Cicero para Milimetros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("cicero_para_milimetros")
+                    size_hint_y: None
+                    height: "48dp"
+                    
+                MDRectangleFlatButton:
+                    text: "Milimetros para Cicero"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("milimetros_para_cicero")
+                    size_hint_y: None
+                    height: "48dp"
+                    
+                MDRectangleFlatButton:
+                    text: "Cicero para Pontos"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("cicero_para_pontos")
+                    size_hint_y: None
+                    height: "48dp"
+                    
+                MDRectangleFlatButton:
+                    text: "Pontos para Cicero"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("pontos_para_cicero")
+                    size_hint_y: None
+                    height: "48dp"
+                    
+                MDRectangleFlatButton:
+                    text: "Pontos para Milimetros"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("pontos_para_milimetros")
+                    size_hint_y: None
+                    height: "48dp"
+                    
+                MDRectangleFlatButton:
+                    text: "Milimetros para Pontos"
+                    size_hint_x: 0.8
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.converter("milimetros_para_pontos")
+                    size_hint_y: None
+                    height: "48dp"
 
                 Widget:
                     size_hint_y: None

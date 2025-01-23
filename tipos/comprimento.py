@@ -36,3 +36,27 @@ def jardas_para_metros(jardas):
 
 def metros_para_jardas(metros):
     return metros / 0.9144
+
+
+def cicero_para_milimetros(ciceros):
+    return ciceros * 12 * 0.376
+
+
+def milimetros_para_cicero(milimetros):
+    return milimetros / (12 * 0.376)
+
+
+def cicero_para_pontos(ciceros):
+    return ciceros * 12
+
+
+def pontos_para_cicero(pontos):
+    return pontos / 12
+
+
+def pontos_para_milimetros(pontos):
+    return pontos * 0.376
+
+
+def milimetros_para_pontos(milimetros):
+    return milimetros / 0.376
