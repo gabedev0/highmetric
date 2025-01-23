@@ -6,7 +6,7 @@ dispositivos móveis, oferecendo uma interface intuitiva e organizada.
 
 ## Tecnologias Usadas
 
-- Python 3.10
+- Python 3.10+
 - Kivy 2.3.1
 - KivyMD 2.1.0
 
