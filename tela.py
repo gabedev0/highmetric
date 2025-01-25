@@ -1,7 +1,7 @@
 tela = """
 ScreenManager:
     id: screen_manager
-    
+
     MenuScreen:
     AnguloScreen:
     AreaScreen:
@@ -18,413 +18,428 @@ ScreenManager:
     VelocidadeScreen:
     VolumeScreen:
 
+
+
+
 <MenuScreen>:
     name: 'menu'
     MDScreen:
-        md_bg_color:
-        
-    MDTopAppBar:
-        title: "HighMetric"
-        center_title: True
-        left_action_items: [["information-outline", lambda x: print("Apertado")]]
-        right_action_items: [["lightbulb", lambda x: app.trocar_tema()]]
+            
+        FloatLayout:
+            orientation: 'vertical'
 
+            MDCarousel:
+                id: carousel
+                direction: 'right'
+                loop: True
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.2, 'center_y': 0.9}
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/angulo_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'angulo'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDIconButton:
-            icon: 'imgs/angulo_icon.png'
-            size_hint: None, None
-            size: "160dp", "160dp"
-            on_press: root.manager.current = 'angulo'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
+                        MDLabel:
+                            text: 'Ângulo'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
 
-        MDLabel:
-            text: 'Ângulo'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
+                
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/area_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'area'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+                        MDLabel:
+                            text: 'Área'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/comprimento_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'comprimento'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDIconButton:
-            icon: 'imgs/area_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'area'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
+                        MDLabel:
+                            text: 'Comprimento'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/densidade_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'densidade'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDLabel:
-            text: 'Área'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
+                        MDLabel:
+                            text: 'Densidade'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/digital_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'digital'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.8, 'center_y': 0.9}
+                        MDLabel:
+                            text: 'Ângulo'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/energia_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'energia'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDIconButton:
-            icon: 'imgs/comprimento_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'comprimento'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
+                        MDLabel:
+                            text: 'Energia'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/forca_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'forca'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDLabel:
-            text: 'Tamanho'
-            text_size: self.size
-            width: self.texture_size[0]
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
+                        MDLabel:
+                            text: 'Força'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/moeda_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'moeda'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.2, 'center_y': 0.8}
+                        MDLabel:
+                            text: 'Moeda'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/peso_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'peso'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDIconButton:
-            icon: 'imgs/densidade_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'densidade'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
+                        MDLabel:
+                            text: 'Peso'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/pressao_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'pressao'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDLabel:
-            text: 'Densidade'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
+                        MDLabel:
+                            text: 'Pressão'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/temperatura_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'temperatura'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
+                        MDLabel:
+                            text: 'Temperatura'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/tempo_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'tempo'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+                        MDLabel:
+                            text: 'Tempo'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                        
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/velocidade_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'velocidade'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDIconButton:
-            icon: 'imgs/digital_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'digital'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
+                        MDLabel:
+                            text: 'Velocidade'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                            
+                MDFloatLayout:
+                    orientation: 'vertical'
+                
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/volume_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+                            on_press: root.manager.current = 'volume'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
 
-        MDLabel:
-            text: 'Digital'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
+                        MDLabel:
+                            text: 'Volume'
+                            halign: 'center'
+                            valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+                
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                pos_hint: {"center_y": 0.5}
+                height: "80dp"
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.8, 'center_y': 0.8}
+                MDIconButton:
+                    icon: "chevron-left"
+                    icon_size: "80dp"
+                    halign: "center"
+                    on_press: carousel.load_previous()
+                    pos_hint: {"center_y": 0.5}
 
-        MDIconButton:
-            icon: 'imgs/energia_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'energia'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
+                Widget:
 
-        MDLabel:
-            text: 'Energia'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.2, 'center_y': 0.7}
-
-        MDIconButton:
-            icon: 'imgs/forca_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'forca'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Força'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
-
-        MDIconButton:
-            icon: 'imgs/moeda_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'moeda'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Moeda'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.8, 'center_y': 0.7}
-
-        MDIconButton:
-            icon: 'imgs/peso_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'peso'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Peso'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.2, 'center_y': 0.6}
-
-        MDIconButton:
-            icon: 'imgs/pressao_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'pressao'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Pressão'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-
-        MDIconButton:
-            icon: 'imgs/temperatura_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'temperatura'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Tempérie'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.8, 'center_y': 0.6}
-
-        MDIconButton:
-            icon: 'imgs/tempo_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'tempo'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Tempo'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.2, 'center_y': 0.5}
-
-        MDIconButton:
-            icon: 'imgs/velocidade_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'velocidade'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Velocidade'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
-    MDBoxLayout:
-        orientation: 'vertical'
-        size_hint: None, None
-        size: self.minimum_size
-        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-
-        MDIconButton:
-            icon: 'imgs/volume_icon.png'
-            size_hint: None, None
-            size: "128dp", "128dp"
-            on_press: root.manager.current = 'volume'
-            canvas.before:
-                Color:
-                    rgba: 0.66, 0.66, 0.66, 1
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [12]
-
-        MDLabel:
-            text: 'Volume'
-            halign: 'center'
-            font_size: '10dp'
-            size_hint_y: None
-            height: self.texture_size[1]
-            max_lines: 1
-            bold: True
-
+                MDIconButton:
+                    icon: "chevron-right"
+                    icon_size: "80dp"
+                    halign: "center"
+                    on_press: carousel.load_next()
+                    pos_hint: {"center_y": 0.5}
+                    
+        MDTopAppBar:
+            title: "HighMetric"
+            pos_hint: {"center_x": .5, "center_y": 0.96}
+            center_title: True
+            left_action_items: [["menu", lambda x: print("Apertado")]]
+            right_action_items: [["calculator", lambda x: app.trocar_tema()]]
 
 <VoltarMenu@MDRectangleFlatButton>:
     text: "Voltar"
@@ -452,7 +467,7 @@ ScreenManager:
                 input_filter: 'float'
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
-                
+
             MDLabel:
                 id: resultado
                 text: "Resultado:"
@@ -476,7 +491,7 @@ ScreenManager:
                 height: "20dp"
 
             VoltarMenu:
-            
+
 
 <AreaScreen>:
     name: 'area'
@@ -498,7 +513,7 @@ ScreenManager:
                 input_filter: 'float'
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
-                
+
             MDLabel:
                 id: resultado
                 text: "Resultado:"
@@ -541,11 +556,11 @@ ScreenManager:
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("m2_para_pes2")
-            
+
             Widget:
                 size_hint_y: None
                 height: "20dp"
-                
+
             VoltarMenu:
 
 <ComprimentoScreen>:
@@ -578,7 +593,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -666,7 +681,7 @@ ScreenManager:
                     on_release: root.converter("m_para_jardas")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDRectangleFlatButton:
                     text: "Cicero para Milimetros"
                     size_hint_x: 0.8
@@ -674,7 +689,7 @@ ScreenManager:
                     on_release: root.converter("cicero_para_milimetros")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDRectangleFlatButton:
                     text: "Milimetros para Cicero"
                     size_hint_x: 0.8
@@ -682,7 +697,7 @@ ScreenManager:
                     on_release: root.converter("milimetros_para_cicero")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDRectangleFlatButton:
                     text: "Cicero para Pontos"
                     size_hint_x: 0.8
@@ -690,7 +705,7 @@ ScreenManager:
                     on_release: root.converter("cicero_para_pontos")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDRectangleFlatButton:
                     text: "Pontos para Cicero"
                     size_hint_x: 0.8
@@ -698,7 +713,7 @@ ScreenManager:
                     on_release: root.converter("pontos_para_cicero")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDRectangleFlatButton:
                     text: "Pontos para Milimetros"
                     size_hint_x: 0.8
@@ -706,7 +721,7 @@ ScreenManager:
                     on_release: root.converter("pontos_para_milimetros")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDRectangleFlatButton:
                     text: "Milimetros para Pontos"
                     size_hint_x: 0.8
@@ -751,7 +766,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -775,7 +790,7 @@ ScreenManager:
                     on_release: root.converter("g_cm3_para_kg_m3")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "255dp"
@@ -812,7 +827,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -868,7 +883,7 @@ ScreenManager:
                     on_release: root.converter("pb_para_tb")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "20dp"
@@ -889,7 +904,7 @@ ScreenManager:
                 size_hint_y: None
                 height: self.minimum_height 
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
-                
+
                 MDLabel:
                     text: "Conversor de Energia"
                     halign: 'center'
@@ -905,7 +920,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -945,7 +960,7 @@ ScreenManager:
                     on_release: root.converter("kwh_para_joules")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "150dp"
@@ -982,7 +997,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: ""
@@ -1022,7 +1037,7 @@ ScreenManager:
                     on_release: root.converter("lbf_para_newtons")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "165dp"
@@ -1039,7 +1054,7 @@ ScreenManager:
             size_hint_y: None
             height: self.minimum_height 
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
-            
+
             Widget:
                 size_hint_y: None
                 height: "10dp"
@@ -1048,7 +1063,7 @@ ScreenManager:
                 text: "Conversor de Moedas"
                 halign: 'center'
                 font_style: 'H5'
-                
+
             Widget:
                 size_hint_y: None
                 height: "10dp"
@@ -1059,7 +1074,7 @@ ScreenManager:
                 input_filter: 'float'
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
-                
+
             MDLabel:
                 id: resultado
                 text: ""
@@ -1067,7 +1082,7 @@ ScreenManager:
                 font_style: 'H6'
                 size_hint_y: None
                 height: self.texture_size[1]
-                
+
             Widget:
                 size_hint_y: None
                 height: "20dp"
@@ -1091,7 +1106,7 @@ ScreenManager:
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter()
-                
+
             Widget:
                 size_hint_y: None
                 height: "160dp"
@@ -1129,7 +1144,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -1201,7 +1216,7 @@ ScreenManager:
                     on_release: root.converter("g_para_oz")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "20dp"
@@ -1238,7 +1253,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -1278,7 +1293,7 @@ ScreenManager:
                     on_release: root.converter("psi_para_pascal")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "150dp"
@@ -1315,7 +1330,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -1372,8 +1387,8 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-               
-                    
+
+
                 Widget:
                     size_hint_y: None
                     height: "20dp"
@@ -1410,7 +1425,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -1466,7 +1481,7 @@ ScreenManager:
                     on_release: root.converter("dias_para_horas")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "20dp"
@@ -1503,7 +1518,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -1559,7 +1574,7 @@ ScreenManager:
                     on_release: root.converter("kmh_para_nos")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "30dp"
@@ -1596,7 +1611,7 @@ ScreenManager:
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 MDLabel:
                     id: resultado
                     text: "Resultado:"
@@ -1668,7 +1683,7 @@ ScreenManager:
                     on_release: root.converter("litros_para_oncas")
                     size_hint_y: None
                     height: "48dp"
-                    
+
                 Widget:
                     size_hint_y: None
                     height: "20dp"
