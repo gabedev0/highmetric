@@ -18,9 +18,6 @@ ScreenManager:
     VelocidadeScreen:
     VolumeScreen:
 
-
-
-
 <MenuScreen>:
     name: 'menu'
     MDScreen:
@@ -59,7 +56,6 @@ ScreenManager:
                             font_size: '24dp'
                             bold: True
                             pos_hint: {"center_x": 0.5, "center_y": 0.3}
-
 
                 MDFloatLayout:
                     orientation: 'vertical'
@@ -167,7 +163,6 @@ ScreenManager:
                             font_size: '24dp'
                             bold: True
                             pos_hint: {"center_x": 0.5, "center_y": 0.3}
-
 
                 MDFloatLayout:
                     orientation: 'vertical'
@@ -441,7 +436,7 @@ ScreenManager:
             left_action_items: [["menu", lambda x: print("Apertado")]]
             right_action_items: [["calculator", lambda x: app.trocar_tema()]]
 
-<VoltarMenu@MDRectangleFlatButton>:
+<VoltarMenu@MDRoundFlatButton>:
     text: "Voltar"
     size_hint_x: 0.8
     pos_hint: {"center_x": 0.5, "center_y": 0.1}
@@ -474,13 +469,13 @@ ScreenManager:
                 halign: 'center'
                 font_style: 'H6'
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Graus para Radianos"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("graus_para_radianos")
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Radianos para Graus"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
@@ -521,37 +516,37 @@ ScreenManager:
                 font_style: 'H6'
                 height: self.texture_size[1]
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Metros² para Hectares"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("m2_para_ha")
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Hectares para Metros²"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("ha_para_m2")
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Metros² para Acres"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("m2_para_acres")
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Acres para Metros²"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("acres_para_m2")
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Pés² para Metros²"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
                 on_release: root.converter("pes2_para_m2")
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Metros² para Pés²"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
@@ -602,7 +597,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Metros para Quilômetros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -610,7 +605,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Quilômetros para Metros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -618,7 +613,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Metros para Milhas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -626,7 +621,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Milhas para Metros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -634,7 +629,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Polegadas para Centímetros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -642,7 +637,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Centímetros para Polegadas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -650,7 +645,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Pés para Metros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -658,7 +653,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Metros para Pés"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -666,7 +661,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Jardas para Metros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -674,7 +669,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Metros para Jardas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -682,7 +677,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Cicero para Milimetros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -690,7 +685,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Milimetros para Cicero"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -698,7 +693,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Cicero para Pontos"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -706,7 +701,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Pontos para Cicero"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -714,7 +709,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Pontos para Milimetros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -722,7 +717,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Milimetros para Pontos"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -775,7 +770,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "kg/m³ para g/cm³"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -783,7 +778,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "g/cm³ para kg/m³"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -836,7 +831,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Bytes para Kilobytes"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -844,7 +839,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Kilobytes para Bytes"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -852,7 +847,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Megabytes para Gigabytes"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -860,7 +855,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Gigabytes para Megabytes"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -868,7 +863,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Terabytes para Petabytes"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -876,7 +871,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Petabytes para Terabytes"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -929,7 +924,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Joules para Quilocalorias"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -937,7 +932,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Quilocalorias para Joules"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -945,7 +940,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Joules para Quilowatt-horas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -953,7 +948,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Quilowatt-horas para Joules"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1006,7 +1001,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Newtons para kgf"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1014,7 +1009,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "kgf para Newtons"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1022,7 +1017,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Newtons para lbf"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1030,7 +1025,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "lbf para Newtons"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1101,7 +1096,7 @@ ScreenManager:
                 pos_hint: {"center_x": 0.5}
                 on_release: root.abrir_menu_moedas(self, "destino")
 
-            MDRectangleFlatButton:
+            MDRaisedButton:
                 text: "Converter"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
@@ -1153,7 +1148,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Quilogramas para Gramas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1161,7 +1156,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Gramas para Quilogramas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1169,7 +1164,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Quilogramas para Libras"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1177,7 +1172,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Libras para Quilogramas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1185,7 +1180,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Toneladas para Quilogramas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1193,7 +1188,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Quilogramas para Toneladas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1201,7 +1196,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Onças para Gramas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1209,7 +1204,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Gramas para Onças"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1262,7 +1257,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Pascal para Bar"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1270,7 +1265,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Bar para Pascal"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1278,7 +1273,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Pascal para PSI"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1286,7 +1281,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "PSI para Pascal"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1339,7 +1334,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Celsius para Fahrenheit"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1347,7 +1342,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Fahrenheit para Celsius"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1355,7 +1350,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Celsius para Kelvin"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1363,7 +1358,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Kelvin para Celsius"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1371,7 +1366,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Fahrenheit para Kelvin"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1379,7 +1374,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Kelvin para Fahrenheit"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1434,7 +1429,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Segundos para Minutos"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1442,7 +1437,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Minutos para Segundos"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1450,7 +1445,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Minutos para Horas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1458,7 +1453,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Horas para Minutos"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1466,7 +1461,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Horas para Dias"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1474,7 +1469,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Dias para Horas"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1527,7 +1522,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "km/h para mph"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1535,7 +1530,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "mph para km/h"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1543,7 +1538,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "m/s para km/h"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1551,7 +1546,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "km/h para m/s"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1559,7 +1554,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "nós para km/h"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1567,7 +1562,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "km/h para nós"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1620,7 +1615,7 @@ ScreenManager:
                     size_hint_y: None
                     height: self.texture_size[1]
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Litros para Mililitros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1628,7 +1623,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Mililitros para Litros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1636,7 +1631,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Litros para Galões"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1644,7 +1639,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Galões para Litros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1652,7 +1647,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Xícaras para Mililitros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1660,7 +1655,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Mililitros para Xícaras"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1668,7 +1663,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Onças para Litros"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
@@ -1676,7 +1671,7 @@ ScreenManager:
                     size_hint_y: None
                     height: "48dp"
 
-                MDRectangleFlatButton:
+                MDRaisedButton:
                     text: "Litros para Onças"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}

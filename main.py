@@ -510,22 +510,37 @@ class VolumeScreen(Screen):
 
 class HighMetric(MDApp):
     def build(self):
-
+        self.carregar_tema()
         self.theme_cls.theme_style_switch_animation = True
         self.theme_cls.theme_style_switch_animation_duration = 0.5
 
-        screen = Builder.load_string(tela)
-        return screen
+        kv = Builder.load_string(tela)
+        return kv
 
     def trocar_tema(self):
         if self.theme_cls.theme_style == "Light":
             self.theme_cls.primary_palette = "Orange"
             self.theme_cls.theme_style = "Dark"
-            self.theme_cls.theme_style_switch_animation_duration = 0.5
         else:
             self.theme_cls.primary_palette = "Blue"
             self.theme_cls.theme_style = "Light"
-            self.theme_cls.theme_style_switch_animation_duration = 0.5
+        self.salvar_tema()
+
+    def salvar_tema(self):
+        tema_config = (f"theme_style={self.theme_cls.theme_style}"
+                       f"\nprimary_palette={self.theme_cls.primary_palette}")
+        with open("tema_cache.txt", "w") as arquivo:
+            arquivo.write(tema_config)
+
+    def carregar_tema(self):
+        try:
+            with open("tema_cache.txt", "r") as arquivo:
+                linhas = arquivo.readlines()
+                self.theme_cls.theme_style = linhas[0].strip().split("=")[1]
+                self.theme_cls.primary_palette = linhas[1].strip().split("=")[1]
+        except:
+            self.theme_cls.theme_style = "Light"
+            self.theme_cls.primary_palette = "Blue"
 
 
 if __name__ == "__main__":
