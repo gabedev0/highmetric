@@ -1,26 +1,11 @@
+import webbrowser
+
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, SlideTransition
 from kivymd.uix.menu import MDDropdownMenu
-from tela import *
-from tipos.moeda import *
-from tipos.angulo import *
-from tipos.area import *
-from tipos.comprimento import *
-from tipos.densidade import *
-from tipos.digital import *
-from tipos.energia import *
-from tipos.forca import *
-from tipos.peso import *
-from tipos.pressao import *
-from tipos.temperatura import *
-from tipos.tempo import *
-from tipos.velocidade import *
-from tipos.volume import *
-
+from tipos import *
 from kivy.core.window import Window
-
-Window.size = (360, 640)
 
 
 class MenuScreen(Screen):
@@ -510,12 +495,13 @@ class VolumeScreen(Screen):
 
 class HighMetric(MDApp):
     def build(self):
+        Window.size = (360, 640)
+
         self.carregar_tema()
         self.theme_cls.theme_style_switch_animation = True
         self.theme_cls.theme_style_switch_animation_duration = 0.5
 
-        kv = Builder.load_string(tela)
-        return kv
+        return Builder.load_file("tela.kv")
 
     def trocar_tema(self):
         if self.theme_cls.theme_style == "Light":
@@ -527,8 +513,8 @@ class HighMetric(MDApp):
         self.salvar_tema()
 
     def salvar_tema(self):
-        tema_config = (f"theme_style={self.theme_cls.theme_style}"
-                       f"\nprimary_palette={self.theme_cls.primary_palette}")
+        tema_config = (f"tema={self.theme_cls.theme_style}"
+                       f"\ncor_primaria={self.theme_cls.primary_palette}")
         with open("tema_cache.txt", "w") as arquivo:
             arquivo.write(tema_config)
 
@@ -541,6 +527,10 @@ class HighMetric(MDApp):
         except:
             self.theme_cls.theme_style = "Light"
             self.theme_cls.primary_palette = "Blue"
+
+    def abrir_documentacao(self):
+        url = "https://github.com/gabedev0/highmetric-PISI-1"
+        webbrowser.open(url)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,4 @@
-tela = """
 ScreenManager:
-    id: screen_manager
-
     MenuScreen:
     AnguloScreen:
     AreaScreen:
@@ -431,10 +428,59 @@ ScreenManager:
 
         MDTopAppBar:
             title: "HighMetric"
-            pos_hint: {"center_x": .5, "center_y": 0.96}
+            pos_hint: {"center_x": 0.5, "center_y": 0.96}
             center_title: True
-            left_action_items: [["menu", lambda x: print("Apertado")]]
+            left_action_items: [["menu", lambda x: menu_lateral.set_state("toggle")]]
             right_action_items: [["calculator", lambda x: app.trocar_tema()]]
+
+        MDNavigationDrawer:
+            id: menu_lateral
+            radius: (0, dp(10), dp(10), 0)
+
+            MDNavigationDrawerMenu:
+
+                MDNavigationDrawerHeader:
+                    title: "Bem Vindo"
+                    text: "Menu"
+                    spacing: "4dp"
+                    padding: "20dp", 0, 0, "40dp"
+
+                MDRoundFlatIconButton:
+                    icon: "theme-light-dark"
+                    text: "Trocar tema"
+                    on_release: app.trocar_tema()
+                    size_hint: None, None
+                    size: "200dp", "50dp"
+                    font_style: "H6"
+                    padding: "10dp"
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(340)
+
+                Widget:
+                    size_hint_y: None
+                    height: "1dp"
+                    canvas.before:
+                        Color:
+                            rgba: app.theme_cls.primary_light
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(10)
+
+                MDNavigationDrawerItem:
+                    icon: "web"
+                    text: "Documentação"
+                    on_release: app.abrir_documentacao()
+
+                MDNavigationDrawerItem:
+                    text: "Versão 1.0.0"
+                    icon: "information-outline"
+
 
 <VoltarMenu@MDRoundFlatButton>:
     text: "Voltar"
@@ -1684,4 +1730,3 @@ ScreenManager:
                     height: "20dp"
 
                 VoltarMenu:
-"""

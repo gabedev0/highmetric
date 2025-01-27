@@ -1,2 +1,2 @@
-theme_style=Dark
-primary_palette=Orange
+tema=Dark
+cor_primaria=Orange
