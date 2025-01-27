@@ -1,11 +1,10 @@
-import webbrowser
-
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, SlideTransition
 from kivymd.uix.menu import MDDropdownMenu
 from tipos import *
 from kivy.core.window import Window
+import webbrowser
 
 
 class MenuScreen(Screen):
@@ -508,7 +507,7 @@ class HighMetric(MDApp):
             self.theme_cls.primary_palette = "Orange"
             self.theme_cls.theme_style = "Dark"
         else:
-            self.theme_cls.primary_palette = "Blue"
+            self.theme_cls.primary_palette = "LightBlue"
             self.theme_cls.theme_style = "Light"
         self.salvar_tema()
 

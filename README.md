@@ -14,3 +14,32 @@ dispositivos móveis, oferecendo uma interface intuitiva e organizada.
 
 - https://www.exchangerate-api.com/
 
+## Funcionalidades
+
+1. Conversão de Ângulos
+
+2. Conversão de Áreas
+
+3. Conversão de Comprimentos
+
+4. Conversão de Densidades
+
+5. Conversão de Unidades Digitais
+
+6. Conversão de Energias
+
+7. Conversão de Forças
+
+8. Conversão de Moedas
+
+9. Conversão de Pesos
+
+10. Conversão de Pressãos
+
+11. Conversão de Temperaturas
+
+12. Conversão de Velocidades
+
+13. Conversão de Volumes
+
+14. Temas Personalizáveis
