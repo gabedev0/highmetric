@@ -237,6 +237,11 @@ class ForcaScreen(Screen):
             self.ids.resultado.text = "Digite um valor."
 
 
+class ImcScreen(Screen):
+    def converter(self):
+        print()
+
+
 class MoedaScreen(Screen):
     def on_pre_enter(self):
         self.manager.transition = SlideTransition(direction='right')

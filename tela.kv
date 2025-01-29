@@ -7,6 +7,7 @@ ScreenManager:
     DigitalScreen:
     EnergiaScreen:
     ForcaScreen:
+    ImcScreen:
     MoedaScreen:
     PesoScreen:
     PressaoScreen:
@@ -211,6 +212,34 @@ ScreenManager:
                             text: 'Força'
                             halign: 'center'
                             valign: 'bottom' 
+                            font_size: '24dp'
+                            bold: True
+                            pos_hint: {"center_x": 0.5, "center_y": 0.3}
+
+
+                MDFloatLayout:
+                    orientation: 'vertical'
+
+                    MDFloatLayout:
+                        MDIconButton:
+                            icon: 'imgs/imc_icon.png'
+                            icon_size: "128dp"
+                            valign: "center"
+                            halign: "center"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            on_press: root.manager.current = 'imc'
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [12]
+
+                        MDLabel:
+                            text: 'IMC'
+                            halign: 'center'
+                            valign: 'bottom'
                             font_size: '24dp'
                             bold: True
                             pos_hint: {"center_x": 0.5, "center_y": 0.3}
@@ -506,6 +535,7 @@ ScreenManager:
                 id: valor_input
                 hint_text: "Digite o valor"
                 input_filter: 'float'
+                mode: "rectangle"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
 
@@ -552,6 +582,7 @@ ScreenManager:
                 id: valor_input
                 hint_text: "Digite o valor"
                 input_filter: 'float'
+                mode: "rectangle"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
 
@@ -630,6 +661,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -803,6 +835,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -864,6 +897,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -957,6 +991,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -1034,6 +1069,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -1085,6 +1121,73 @@ ScreenManager:
 
                 VoltarMenu:
 
+<ImcScreen>:
+    name: "imc"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(10)
+        spacing: dp(10)
+
+        MDLabel:
+            text: "Calculadora de IMC"
+            halign: "center"
+            font_style: "H5"
+
+        MDTextField:
+            id: peso_input
+            hint_text: "Digite seu peso (kg)"
+            input_filter: "float"
+            helper_text: "Exemplo: 70.5"
+            helper_text_mode: "on_focus"
+            mode: "rectangle"
+
+        MDTextField:
+            id: altura_input
+            hint_text: "Digite sua altura (m)"
+            input_filter: "float"
+            helper_text: "Exemplo: 1.75"
+            helper_text_mode: "on_focus"
+            mode: "rectangle"
+
+        MDLabel:
+            text: "Selecione o gênero"
+            halign: "center"
+            theme_text_color: "Secondary"
+
+        MDSegmentedControl:
+            id: genero
+            pos_hint: {"center_x": 0.5}
+
+
+            MDSegmentedControlItem:
+                text: "Masculino"
+                size_hint_x: 0.5
+                font_size: "12sp"
+
+                md_bg_color: app.theme_cls.theme_style
+
+            MDSegmentedControlItem:
+                text: "Feminino"
+                size_hint_x: 0.5
+                font_size: "12sp"
+                md_bg_color: app.theme_cls.theme_style
+
+
+
+        MDRaisedButton:
+            text: "Calcular IMC"
+            pos_hint: {"center_x": 0.5}
+            on_release: root.converter()
+
+        MDLabel:
+            id: resultado
+            text: ""
+            halign: "center"
+            theme_text_color: "Secondary"
+
+        VoltarMenu:
+
+
 <MoedaScreen>:
     name: 'moeda'
     MDScreen:
@@ -1113,6 +1216,7 @@ ScreenManager:
                 id: valor_input
                 hint_text: "Digite o valor"
                 input_filter: 'float'
+                mode: "rectangle"
                 size_hint_x: 0.8
                 pos_hint: {"center_x": 0.5}
 
@@ -1181,6 +1285,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -1290,6 +1395,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -1367,6 +1473,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -1462,6 +1569,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -1555,6 +1663,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None
@@ -1648,6 +1757,7 @@ ScreenManager:
                     id: valor_input
                     hint_text: "Digite o valor"
                     input_filter: 'float'
+                    mode: "rectangle"
                     size_hint_x: 0.8
                     pos_hint: {"center_x": 0.5}
                     size_hint_y: None

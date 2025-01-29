@@ -5,6 +5,7 @@ from .densidade import *
 from .digital import *
 from .energia import *
 from .forca import *
+from .imc import *
 from .moeda import *
 from .peso import *
 from .pressao import *
