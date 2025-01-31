@@ -21,12 +21,13 @@ class AnguloScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "graus_para_radianos":
-                    resultado = graus_para_radianos(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} radianos"
-                elif tipo == "radianos_para_graus":
-                    resultado = radianos_para_graus(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} graus"
+                match tipo:
+                    case "graus_para_radianos":
+                        resultado = graus_para_radianos(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} radianos"
+                    case "radianos_para_graus":
+                        resultado = radianos_para_graus(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} graus"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -42,24 +43,25 @@ class AreaScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "m2_para_ha":
-                    resultado = metros_quadrados_para_hectares(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} hectares"
-                elif tipo == "ha_para_m2":
-                    resultado = hectares_para_metros_quadrados(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} m²"
-                elif tipo == "m2_para_acres":
-                    resultado = metros_quadrados_para_acres(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} acres"
-                elif tipo == "acres_para_m2":
-                    resultado = acres_para_metros_quadrados(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} m²"
-                elif tipo == "pes2_para_m2":
-                    resultado = pes_quadrados_para_metros_quadrados(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} m²"
-                elif tipo == "m2_para_pes2":
-                    resultado = metros_quadrados_para_pes_quadrados(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} pés²"
+                match tipo:
+                    case "m2_para_ha":
+                        resultado = metros_quadrados_para_hectares(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} hectares"
+                    case "ha_para_m2":
+                        resultado = hectares_para_metros_quadrados(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} m²"
+                    case "m2_para_acres":
+                        resultado = metros_quadrados_para_acres(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} acres"
+                    case "acres_para_m2":
+                        resultado = acres_para_metros_quadrados(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} m²"
+                    case "pes2_para_m2":
+                        resultado = pes_quadrados_para_metros_quadrados(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} m²"
+                    case "m2_para_pes2":
+                        resultado = metros_quadrados_para_pes_quadrados(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} pés²"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -75,54 +77,55 @@ class ComprimentoScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "m_para_km":
-                    resultado = metros_para_quilometros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} km"
-                elif tipo == "km_para_m":
-                    resultado = quilometros_para_metros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
-                elif tipo == "m_para_milhas":
-                    resultado = metros_para_milhas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} milhas"
-                elif tipo == "milhas_para_m":
-                    resultado = milhas_para_metros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
-                elif tipo == "pol_para_cm":
-                    resultado = polegadas_para_centimetros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} cm"
-                elif tipo == "cm_para_pol":
-                    resultado = centimetros_para_polegadas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} polegadas"
-                elif tipo == "pes_para_m":
-                    resultado = pes_para_metros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
-                elif tipo == "m_para_pes":
-                    resultado = metros_para_pes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} pés"
-                elif tipo == "jardas_para_m":
-                    resultado = jardas_para_metros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
-                elif tipo == "m_para_jardas":
-                    resultado = metros_para_jardas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
-                elif tipo == "cicero_para_milimetros":
-                    resultado = cicero_para_milimetros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
-                elif tipo == "milimetros_para_cicero":
-                    resultado = milimetros_para_cicero(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
-                elif tipo == "cicero_para_pontos":
-                    resultado = cicero_para_pontos(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
-                elif tipo == "pontos_para_cicero":
-                    resultado = pontos_para_cicero(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
-                elif tipo == "pontos_para_milimetros":
-                    resultado = pontos_para_milimetros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
-                elif tipo == "milimetros_para_pontos":
-                    resultado = milimetros_para_pontos(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                match tipo:
+                    case "m_para_km":
+                        resultado = metros_para_quilometros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} km"
+                    case "km_para_m":
+                        resultado = quilometros_para_metros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
+                    case "m_para_milhas":
+                        resultado = metros_para_milhas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} milhas"
+                    case "milhas_para_m":
+                        resultado = milhas_para_metros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
+                    case "pol_para_cm":
+                        resultado = polegadas_para_centimetros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} cm"
+                    case "cm_para_pol":
+                        resultado = centimetros_para_polegadas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} polegadas"
+                    case "pes_para_m":
+                        resultado = pes_para_metros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
+                    case "m_para_pes":
+                        resultado = metros_para_pes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} pés"
+                    case "jardas_para_m":
+                        resultado = jardas_para_metros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} m"
+                    case "m_para_jardas":
+                        resultado = metros_para_jardas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} jardas"
+                    case "cicero_para_milimetros":
+                        resultado = cicero_para_milimetros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} mm"
+                    case "milimetros_para_cicero":
+                        resultado = milimetros_para_cicero(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} cicero"
+                    case "cicero_para_pontos":
+                        resultado = cicero_para_pontos(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} pontos"
+                    case "pontos_para_cicero":
+                        resultado = pontos_para_cicero(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} cicero"
+                    case "pontos_para_milimetros":
+                        resultado = pontos_para_milimetros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} mm"
+                    case "milimetros_para_pontos":
+                        resultado = milimetros_para_pontos(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} pontos"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -138,12 +141,13 @@ class DensidadeScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "kg_m3_para_g_cm3":
-                    resultado = kg_por_metro_cubico_para_g_por_cm_cubico(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.6f} g/cm³"
-                elif tipo == "g_cm3_para_kg_m3":
-                    resultado = g_por_cm_cubico_para_kg_por_metro_cubico(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} kg/m³"
+                match tipo:
+                    case "kg_m3_para_g_cm3":
+                        resultado = kg_por_metro_cubico_para_g_por_cm_cubico(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.6f} g/cm³"
+                    case "g_cm3_para_kg_m3":
+                        resultado = g_por_cm_cubico_para_kg_por_metro_cubico(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} kg/m³"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -159,24 +163,25 @@ class DigitalScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "bytes_para_kb":
-                    resultado = bytes_para_kilobytes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} KB"
-                elif tipo == "kb_para_bytes":
-                    resultado = kilobytes_para_bytes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} bytes"
-                elif tipo == "mb_para_gb":
-                    resultado = megabytes_para_gigabytes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} GB"
-                elif tipo == "gb_para_mb":
-                    resultado = gigabytes_para_megabytes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} MB"
-                elif tipo == "tb_para_pb":
-                    resultado = terabytes_para_petabytes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} PB"
-                elif tipo == "pb_para_tb":
-                    resultado = petabytes_para_terabytes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} TB"
+                match tipo:
+                    case "bytes_para_kb":
+                        resultado = bytes_para_kilobytes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} KB"
+                    case "kb_para_bytes":
+                        resultado = kilobytes_para_bytes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} bytes"
+                    case "mb_para_gb":
+                        resultado = megabytes_para_gigabytes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} GB"
+                    case "gb_para_mb":
+                        resultado = gigabytes_para_megabytes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} MB"
+                    case "tb_para_pb":
+                        resultado = terabytes_para_petabytes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} PB"
+                    case "pb_para_tb":
+                        resultado = petabytes_para_terabytes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} TB"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -192,18 +197,19 @@ class EnergiaScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "joules_para_kcal":
-                    resultado = joules_para_quilocalorias(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.6f} kcal"
-                elif tipo == "kcal_para_joules":
-                    resultado = quilocalorias_para_joules(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} J"
-                elif tipo == "joules_para_kwh":
-                    resultado = joules_para_quilowatt_horas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.6f} kWh"
-                elif tipo == "kwh_para_joules":
-                    resultado = quilowatt_horas_para_joules(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} J"
+                match tipo:
+                    case "joules_para_kcal":
+                        resultado = joules_para_quilocalorias(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.6f} kcal"
+                    case "kcal_para_joules":
+                        resultado = quilocalorias_para_joules(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} J"
+                    case "joules_para_kwh":
+                        resultado = joules_para_quilowatt_horas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.6f} kWh"
+                    case "kwh_para_joules":
+                        resultado = quilowatt_horas_para_joules(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} J"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -219,18 +225,19 @@ class ForcaScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "newtons_para_kgf":
-                    resultado = newtons_para_kgf(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} kgf"
-                elif tipo == "kgf_para_newtons":
-                    resultado = kgf_para_newtons(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} N"
-                elif tipo == "newtons_para_lbf":
-                    resultado = newtons_para_lbf(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} lbf"
-                elif tipo == "lbf_para_newtons":
-                    resultado = lbf_para_newtons(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} N"
+                match tipo:
+                    case "newtons_para_kgf":
+                        resultado = newtons_para_kgf(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} kgf"
+                    case "kgf_para_newtons":
+                        resultado = kgf_para_newtons(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} N"
+                    case "newtons_para_lbf":
+                        resultado = newtons_para_lbf(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} lbf"
+                    case "lbf_para_newtons":
+                        resultado = lbf_para_newtons(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} N"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -238,8 +245,30 @@ class ForcaScreen(Screen):
 
 
 class ImcScreen(Screen):
-    def converter(self):
-        print()
+    genero = None
+
+    def selecionar_genero(self, genero, active):
+        if active:
+            self.genero = genero
+        else:
+            self.genero = None
+
+    def calcular_imc(self):
+        peso = self.ids.peso_input.text
+        altura = self.ids.altura_input.text
+
+        if not peso or not altura:
+            self.ids.resultado.text = "Por favor, preencha todos os campos."
+            return
+
+        try:
+            peso = float(peso)
+            altura = float(altura)
+            imc = calcular_imc(peso, altura)
+            classificacao = classificar_imc(imc, self.genero)
+            self.ids.resultado.text = f"Seu IMC é: {imc:.2f}\nClassificação: {classificacao}"
+        except:
+            self.ids.resultado.text = "Por favor, preencha todos os campos."
 
 
 class MoedaScreen(Screen):
@@ -302,30 +331,31 @@ class PesoScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "kg_para_g":
-                    resultado = quilogramas_para_gramas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} g"
-                elif tipo == "g_para_kg":
-                    resultado = gramas_para_quilogramas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} kg"
-                elif tipo == "kg_para_lb":
-                    resultado = quilogramas_para_libras(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} lb"
-                elif tipo == "lb_para_kg":
-                    resultado = libras_para_quilogramas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} kg"
-                elif tipo == "t_para_kg":
-                    resultado = toneladas_para_quilogramas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} kg"
-                elif tipo == "kg_para_t":
-                    resultado = quilogramas_para_toneladas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} t"
-                elif tipo == "oz_para_g":
-                    resultado = oncas_para_gramas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} g"
-                elif tipo == "g_para_oz":
-                    resultado = gramas_para_oncas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} oz"
+                match tipo:
+                    case "kg_para_g":
+                        resultado = quilogramas_para_gramas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} g"
+                    case "g_para_kg":
+                        resultado = gramas_para_quilogramas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} kg"
+                    case "kg_para_lb":
+                        resultado = quilogramas_para_libras(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} lb"
+                    case "lb_para_kg":
+                        resultado = libras_para_quilogramas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} kg"
+                    case "t_para_kg":
+                        resultado = toneladas_para_quilogramas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} kg"
+                    case "kg_para_t":
+                        resultado = quilogramas_para_toneladas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} t"
+                    case "oz_para_g":
+                        resultado = oncas_para_gramas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} g"
+                    case "g_para_oz":
+                        resultado = gramas_para_oncas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} oz"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -341,18 +371,19 @@ class PressaoScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "pascal_para_bar":
-                    resultado = pascal_para_bar(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.6f} bar"
-                elif tipo == "bar_para_pascal":
-                    resultado = bar_para_pascal(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} Pa"
-                elif tipo == "pascal_para_psi":
-                    resultado = pascal_para_psi(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.6f} psi"
-                elif tipo == "psi_para_pascal":
-                    resultado = psi_para_pascal(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} Pa"
+                match tipo:
+                    case "pascal_para_bar":
+                        resultado = pascal_para_bar(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.6f} bar"
+                    case "bar_para_pascal":
+                        resultado = bar_para_pascal(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} Pa"
+                    case "pascal_para_psi":
+                        resultado = pascal_para_psi(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.6f} psi"
+                    case "psi_para_pascal":
+                        resultado = psi_para_pascal(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} Pa"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -368,24 +399,25 @@ class TemperaturaScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "celsius_para_fahrenheit":
-                    resultado = celsius_para_fahrenheit(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} °F"
-                elif tipo == "fahrenheit_para_celsius":
-                    resultado = fahrenheit_para_celsius(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} °C"
-                elif tipo == "celsius_para_kelvin":
-                    resultado = celsius_para_kelvin(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} K"
-                elif tipo == "kelvin_para_celsius":
-                    resultado = kelvin_para_celsius(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} °C"
-                elif tipo == "fahrenheit_para_kelvin":
-                    resultado = fahrenheit_para_kelvin(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} K"
-                elif tipo == "kelvin_para_fahrenheit":
-                    resultado = kelvin_para_fahrenheit(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} °F"
+                match tipo:
+                    case "celsius_para_fahrenheit":
+                        resultado = celsius_para_fahrenheit(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} °F"
+                    case "fahrenheit_para_celsius":
+                        resultado = fahrenheit_para_celsius(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} °C"
+                    case "celsius_para_kelvin":
+                        resultado = celsius_para_kelvin(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} K"
+                    case "kelvin_para_celsius":
+                        resultado = kelvin_para_celsius(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} °C"
+                    case "fahrenheit_para_kelvin":
+                        resultado = fahrenheit_para_kelvin(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} K"
+                    case "kelvin_para_fahrenheit":
+                        resultado = kelvin_para_fahrenheit(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} °F"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -401,24 +433,25 @@ class TempoScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "segundos_para_minutos":
-                    resultado = segundos_para_minutos(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} minutos"
-                elif tipo == "minutos_para_segundos":
-                    resultado = minutos_para_segundos(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} segundos"
-                elif tipo == "minutos_para_horas":
-                    resultado = minutos_para_horas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} horas"
-                elif tipo == "horas_para_minutos":
-                    resultado = horas_para_minutos(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} minutos"
-                elif tipo == "horas_para_dias":
-                    resultado = horas_para_dias(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} dias"
-                elif tipo == "dias_para_horas":
-                    resultado = dias_para_horas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} horas"
+                match tipo:
+                    case "segundos_para_minutos":
+                        resultado = segundos_para_minutos(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} minutos"
+                    case "minutos_para_segundos":
+                        resultado = minutos_para_segundos(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} segundos"
+                    case "minutos_para_horas":
+                        resultado = minutos_para_horas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} horas"
+                    case "horas_para_minutos":
+                        resultado = horas_para_minutos(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} minutos"
+                    case "horas_para_dias":
+                        resultado = horas_para_dias(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} dias"
+                    case "dias_para_horas":
+                        resultado = dias_para_horas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} horas"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -434,24 +467,25 @@ class VelocidadeScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "kmh_para_mph":
-                    resultado = kmh_para_mph(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} mph"
-                elif tipo == "mph_para_kmh":
-                    resultado = mph_para_kmh(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} km/h"
-                elif tipo == "mps_para_kmh":
-                    resultado = mps_para_kmh(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} km/h"
-                elif tipo == "kmh_para_mps":
-                    resultado = kmh_para_mps(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} m/s"
-                elif tipo == "nos_para_kmh":
-                    resultado = nos_para_kmh(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} km/h"
-                elif tipo == "kmh_para_nos":
-                    resultado = kmh_para_nos(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} nós"
+                match tipo:
+                    case "kmh_para_mph":
+                        resultado = kmh_para_mph(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} mph"
+                    case "mph_para_kmh":
+                        resultado = mph_para_kmh(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} km/h"
+                    case "mps_para_kmh":
+                        resultado = mps_para_kmh(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} km/h"
+                    case "kmh_para_mps":
+                        resultado = kmh_para_mps(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} m/s"
+                    case "nos_para_kmh":
+                        resultado = nos_para_kmh(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} km/h"
+                    case "kmh_para_nos":
+                        resultado = kmh_para_nos(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} nós"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido."
         else:
@@ -467,30 +501,31 @@ class VolumeScreen(Screen):
         if valor:
             try:
                 valor = float(valor)
-                if tipo == "litros_para_ml":
-                    resultado = litros_para_mililitros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} ml"
-                elif tipo == "ml_para_litros":
-                    resultado = mililitros_para_litros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} litros"
-                elif tipo == "litros_para_galoes":
-                    resultado = litros_para_galoes(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} galões"
-                elif tipo == "galoes_para_litros":
-                    resultado = galoes_para_litros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} litros"
-                elif tipo == "xicaras_para_ml":
-                    resultado = xicaras_para_mililitros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} ml"
-                elif tipo == "ml_para_xicaras":
-                    resultado = mililitros_para_xicaras(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} xícaras"
-                elif tipo == "oncas_para_litros":
-                    resultado = oncas_liquidas_para_litros(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.4f} litros"
-                elif tipo == "litros_para_oncas":
-                    resultado = litros_para_oncas_liquidas(valor)
-                    self.ids.resultado.text = f"Resultado: {resultado:.2f} onças"
+                match tipo:
+                    case "litros_para_ml":
+                        resultado = litros_para_mililitros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} ml"
+                    case "ml_para_litros":
+                        resultado = mililitros_para_litros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} litros"
+                    case "litros_para_galoes":
+                        resultado = litros_para_galoes(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} galões"
+                    case "galoes_para_litros":
+                        resultado = galoes_para_litros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} litros"
+                    case "xicaras_para_ml":
+                        resultado = xicaras_para_mililitros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} ml"
+                    case "ml_para_xicaras":
+                        resultado = mililitros_para_xicaras(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} xícaras"
+                    case "oncas_para_litros":
+                        resultado = oncas_liquidas_para_litros(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.4f} litros"
+                    case "litros_para_oncas":
+                        resultado = litros_para_oncas_liquidas(valor)
+                        self.ids.resultado.text = f"Resultado: {resultado:.2f} onças"
             except ValueError:
                 self.ids.resultado.text = "Erro: Valor inválido"
         else:

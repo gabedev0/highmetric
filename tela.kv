@@ -1154,36 +1154,44 @@ ScreenManager:
             halign: "center"
             theme_text_color: "Secondary"
 
-        MDSegmentedControl:
-            id: genero
-            pos_hint: {"center_x": 0.5}
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: dp(10)
+            size_hint_y: None
+            height: dp(48)
 
+            MDCheckbox:
+                id: checkbox_homem
+                group: "genero"
+                on_active: root.selecionar_genero("homem", self.active)
+                size_hint: None, None
+                size: dp(48), dp(48)
 
-            MDSegmentedControlItem:
-                text: "Masculino"
-                size_hint_x: 0.5
-                font_size: "12sp"
+            MDLabel:
+                text: "Homem"
+                theme_text_color: "Secondary"
 
-                md_bg_color: app.theme_cls.theme_style
+            MDCheckbox:
+                id: checkbox_mulher
+                group: "genero"
+                on_active: root.selecionar_genero("mulher", self.active)
+                size_hint: None, None
+                size: dp(48), dp(48)
 
-            MDSegmentedControlItem:
-                text: "Feminino"
-                size_hint_x: 0.5
-                font_size: "12sp"
-                md_bg_color: app.theme_cls.theme_style
-
-
+            MDLabel:
+                text: "Mulher"
+                theme_text_color: "Secondary"
 
         MDRaisedButton:
             text: "Calcular IMC"
             pos_hint: {"center_x": 0.5}
-            on_release: root.converter()
+            on_release: root.calcular_imc()
 
         MDLabel:
             id: resultado
             text: ""
-            halign: "center"
-            theme_text_color: "Secondary"
+            halign: 'center'
+            height: self.texture_size[1]
 
         VoltarMenu:
 
