@@ -1,16 +1,10 @@
 def calcular_imc(peso: float, altura: float) -> float:
-    """
-    Calcula o IMC com base no peso e altura fornecidos.
-    """
     if altura <= 0 or peso <= 0:
         raise ValueError("Peso e altura devem ser maiores que zero.")
     return peso / (altura ** 2)
 
 
 def classificar_imc(imc: float, genero: str) -> str:
-    """
-    Classifica o IMC com base no gênero.
-    """
     if genero == "homem":
         if imc < 20.7:
             return "Abaixo do peso"
