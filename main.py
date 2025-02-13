@@ -1,15 +1,15 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen, SlideTransition
+from kivy.uix.screenmanager import Screen, SlideTransition, NoTransition
 from kivymd.uix.menu import MDDropdownMenu
 from tipos import *
 from kivy.core.window import Window
-import webbrowser
+import webbrowser, json, os
 
 
 class MenuScreen(Screen):
     def on_pre_enter(self):
-        self.manager.transition = SlideTransition(direction='left')
+        self.manager.transition = NoTransition()
 
 
 class AnguloScreen(Screen):
@@ -532,6 +532,9 @@ class VolumeScreen(Screen):
             self.ids.resultado.text = "Digite um valor"
 
 
+CACHE_FILE = "cache.json"
+
+
 class HighMetric(MDApp):
     def build(self):
         Window.size = (360, 640)
@@ -552,18 +555,24 @@ class HighMetric(MDApp):
         self.salvar_tema()
 
     def salvar_tema(self):
-        tema_config = (f"tema={self.theme_cls.theme_style}"
-                       f"\ncor_primaria={self.theme_cls.primary_palette}")
-        with open("tema_cache.txt", "w") as arquivo:
-            arquivo.write(tema_config)
+        tema_config = {
+            "tema": self.theme_cls.theme_style,
+            "cor_primaria": self.theme_cls.primary_palette
+        }
+        with open(CACHE_FILE, "w", encoding="utf-8") as arquivo:
+            json.dump(tema_config, arquivo, indent=4)
 
     def carregar_tema(self):
-        try:
-            with open("tema_cache.txt", "r") as arquivo:
-                linhas = arquivo.readlines()
-                self.theme_cls.theme_style = linhas[0].strip().split("=")[1]
-                self.theme_cls.primary_palette = linhas[1].strip().split("=")[1]
-        except:
+        if os.path.exists(CACHE_FILE):
+            try:
+                with open(CACHE_FILE, "r", encoding="utf-8") as arquivo:
+                    tema_config = json.load(arquivo)
+                    self.theme_cls.theme_style = tema_config.get("tema", "Light")
+                    self.theme_cls.primary_palette = tema_config.get("cor_primaria", "Blue")
+            except json.JSONDecodeError:
+                self.theme_cls.theme_style = "Light"
+                self.theme_cls.primary_palette = "Blue"
+        else:
             self.theme_cls.theme_style = "Light"
             self.theme_cls.primary_palette = "Blue"
 
