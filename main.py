@@ -559,13 +559,13 @@ class HighMetric(MDApp):
             "tema": self.theme_cls.theme_style,
             "cor_primaria": self.theme_cls.primary_palette
         }
-        with open(CACHE_FILE, "w", encoding="utf-8") as arquivo:
+        with open(CACHE_FILE, "w",) as arquivo:
             json.dump(tema_config, arquivo, indent=4)
 
     def carregar_tema(self):
         if os.path.exists(CACHE_FILE):
             try:
-                with open(CACHE_FILE, "r", encoding="utf-8") as arquivo:
+                with open(CACHE_FILE, "r",) as arquivo:
                     tema_config = json.load(arquivo)
                     self.theme_cls.theme_style = tema_config.get("tema", "Light")
                     self.theme_cls.primary_palette = tema_config.get("cor_primaria", "Blue")
