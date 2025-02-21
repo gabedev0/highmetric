@@ -569,7 +569,7 @@ class HighMetric(MDApp):
                     tema_config = json.load(arquivo)
                     self.theme_cls.theme_style = tema_config.get("tema", "Light")
                     self.theme_cls.primary_palette = tema_config.get("cor_primaria", "Blue")
-            except json.JSONDecodeError:
+            except:
                 self.theme_cls.theme_style = "Light"
                 self.theme_cls.primary_palette = "Blue"
         else:
