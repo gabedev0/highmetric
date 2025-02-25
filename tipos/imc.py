@@ -1,10 +1,10 @@
-def calcular_imc(peso: float, altura: float) -> float:
+def calcular_imc(peso: float, altura: float):
     if altura <= 0 or peso <= 0:
-        raise ValueError("Peso e altura devem ser maiores que zero.")
+        return "Peso e altura devem ser maiores que zero."
     return peso / (altura ** 2)
 
 
-def classificar_imc(imc: float, genero: str) -> str:
+def classificar_imc(imc: float, genero: str):
     if genero == "homem":
         if imc < 20.7:
             return "Abaixo do peso"
