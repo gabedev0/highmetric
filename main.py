@@ -12,6 +12,24 @@ class MenuScreen(Screen):
         self.manager.transition = NoTransition()
 
 
+class CalculadoraScreen(Screen):
+    def atualizar_tela(self, value):
+        tela = self.ids.tela
+        if tela.text == '0' or tela.text == 'Error':
+            tela.text = value
+        else:
+            tela.text += value
+
+    def limpa_tela(self):
+        self.ids.tela.text = '0'
+
+    def calcular(self):
+        try:
+            self.ids.tela.text = str(eval(self.ids.tela.text))
+        except:
+            self.ids.tela.text = 'Error'
+
+
 class AnguloScreen(Screen):
     def on_pre_enter(self):
         self.manager.transition = SlideTransition(direction='right')
@@ -559,13 +577,13 @@ class HighMetric(MDApp):
             "tema": self.theme_cls.theme_style,
             "cor_primaria": self.theme_cls.primary_palette
         }
-        with open(CACHE_FILE, "w",) as arquivo:
+        with open(CACHE_FILE, "w", ) as arquivo:
             json.dump(tema_config, arquivo, indent=4)
 
     def carregar_tema(self):
         if os.path.exists(CACHE_FILE):
             try:
-                with open(CACHE_FILE, "r",) as arquivo:
+                with open(CACHE_FILE, "r", ) as arquivo:
                     tema_config = json.load(arquivo)
                     self.theme_cls.theme_style = tema_config.get("tema", "Light")
                     self.theme_cls.primary_palette = tema_config.get("cor_primaria", "Blue")
@@ -579,6 +597,9 @@ class HighMetric(MDApp):
     def abrir_documentacao(self):
         url = "https://github.com/gabedev0/highmetric-PISI-1"
         webbrowser.open(url)
+
+    def change_screen(self, screen_name):
+        self.root.current = screen_name
 
 
 if __name__ == "__main__":

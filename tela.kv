@@ -2,6 +2,7 @@ ScreenManager:
     MenuScreen:
     AnguloScreen:
     AreaScreen:
+    CalculadoraScreen:
     ComprimentoScreen:
     DensidadeScreen:
     DigitalScreen:
@@ -475,7 +476,8 @@ ScreenManager:
             pos_hint: {"center_x": 0.5, "center_y": 0.96}
             center_title: True
             left_action_items: [["menu", lambda x: menu_lateral.set_state("toggle")]]
-            right_action_items: [["calculator", lambda x: app.trocar_tema()]]
+            right_action_items: [["calculator", lambda x: app.change_screen("calculadora")]]
+
 
         MDNavigationDrawer:
             id: menu_lateral
@@ -535,8 +537,132 @@ ScreenManager:
 <VoltarMenu@MDRoundFlatButton>:
     text: "Voltar"
     size_hint_x: 0.8
-    pos_hint: {"center_x": 0.5, "center_y": 0.1}
+    pos_hint:   {"center_x": 0.5, "center_y": 0.1}
     on_release: app.root.current = 'menu'
+
+<CalculadoraScreen>:
+    name: 'calculadora'
+    AnchorLayout:
+        anchor_y: 'center'
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: dp(40)
+            spacing: dp(10)
+            size_hint_y: None
+            height: self.minimum_height
+
+            MDLabel:
+                id: tela
+                text: '0'
+                font_size: '48dp'
+                halign: 'right'
+                valign: 'bottom'
+                size_hint_y: None
+                height: self.texture_size[1]
+                bold: True
+
+            MDGridLayout:
+                cols: 4
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDRoundFlatButton:
+                    text: '7'
+                    on_release: root.atualizar_tela('7')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: '8'
+                    on_release: root.atualizar_tela('8')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: '9'
+                    on_release: root.atualizar_tela('9')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRaisedButton:
+                    text: '/'
+                    on_release: root.atualizar_tela('/')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+
+                MDRoundFlatButton:
+                    text: '4'
+                    on_release: root.atualizar_tela('4')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: '5'
+                    on_release: root.atualizar_tela('5')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: '6'
+                    on_release: root.atualizar_tela('6')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRaisedButton:
+                    text: '*'
+                    on_release: root.atualizar_tela('*')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+
+                MDRoundFlatButton:
+                    text: '1'
+                    on_release: root.atualizar_tela('1')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: '2'
+                    on_release: root.atualizar_tela('2')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: '3'
+                    on_release: root.atualizar_tela('3')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRaisedButton:
+                    text: '-'
+                    on_release: root.atualizar_tela('-')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+
+                MDRoundFlatButton:
+                    text: '0'
+                    on_release: root.atualizar_tela('0')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: '.'
+                    on_release: root.atualizar_tela('.')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRoundFlatButton:
+                    text: 'C'
+                    on_release: root.limpa_tela()
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+                MDRaisedButton:
+                    text: '+'
+                    on_release: root.atualizar_tela('+')
+                    size_hint: None, None
+                    size: dp(80), dp(80)
+
+            MDRaisedButton:
+                text: '='
+                size_hint_y: None
+                size_hint_x: 1
+                height: dp(80)
+                on_release: root.calcular()
+
+            Widget:
+                size_hint_y: None
+                height: "30dp"
+
+            VoltarMenu:
 
 <AnguloScreen>:
     name: 'angulo'
