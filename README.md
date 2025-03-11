@@ -47,3 +47,13 @@ dispositivos móveis, oferecendo uma interface intuitiva e organizada.
 15. Calculadora Comum
 
 16. Temas Personalizáveis
+
+## Screenshots
+
+![print1](screenshots/Captura1.png)
+![print2](screenshots/Captura2.png)
+![print3](screenshots/Captura3.png)
+![print4](screenshots/Captura4.png)
+![print5](screenshots/Captura5.png)
+![print6](screenshots/Captura6.png)
+![print7](screenshots/Captura7.png)
